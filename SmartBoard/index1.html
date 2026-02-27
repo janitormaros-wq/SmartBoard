@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Board</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Source Sans Pro',sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:linear-gradient(to bottom,#ffffff,#add8e6);
+  color:#00008b;
+  overflow-x:hidden;
+  margin-left:240px;
+}
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100vh;
+  width:240px;
+  padding:30px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background:linear-gradient(180deg,#e6f7ff,#ffffff);
+  border-right:1px solid rgba(0,0,139,0.2);
+}
+
+nav img{
+  height:100px;
+  margin-bottom:55px;
+  cursor:pointer;
+}
+
+nav ul{
+  list-style:none;
+  width:100%;
+  text-align:center;
+}
+
+nav ul li{
+  margin:10px 0;
+  cursor:pointer;
+  font-size:0.85rem;
+  padding:6px 0;
+  border-radius:6px;
+  transition:0.3s;
+}
+
+nav ul li:hover{
+  background:rgba(0,0,255,0.1);
+  color:#0000ff;
+}
+
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:6.5rem;
+  letter-spacing:6px;
+  background:linear-gradient(90deg,#0000ff,#00008b);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.section{
+  padding:100px 50px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.section h2{
+  text-align:center;
+  margin-bottom:40px;
+  color:#0000ff;
+}
+
+.card{
+  background:white;
+  border-radius:12px;
+  padding:30px;
+  margin-bottom:30px;
+  border:1px solid rgba(0,0,139,0.2);
+  box-shadow:0 10px 25px rgba(0,0,139,0.2);
+}
+
+.download-link, .comm-link{
+  display:block;
+  margin:10px 0;
+  color:#0000ff;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.download-link:hover, .comm-link:hover{
+  text-decoration:underline;
+}
+
+.comm-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.comm-text {
+  flex: 1;
+}
+
+.comm-links {
+  flex: 0 0 250px;
+  background: rgba(255,255,255,0.5);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px dashed #0000ff;
+}
+
+footer{
+  text-align:center;
+  padding:40px;
+  background:#ffffff;
+  border-top:1px solid rgba(0,0,139,0.2);
+}
+
+.warning-box {
+  border-left: 5px solid #ff0000;
+  background-color: #fff5f5;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.info-box {
+  border-left: 5px solid #0000ff;
+  background-color: #f0f7ff;
+  padding: 20px;
+  font-size: 1.1rem;
+}
+h2{ font-size: 50px;}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <img src="Smart Board.png" onclick="scrollToTop()" alt="Logo">
+  <ul>
+    <li onclick="scrollToSection('projekty')">Doposiaľ odovzdané projekty</li>
+    <li onclick="scrollToSection('zadanie-sekcia')">Aktuálne zadanie</li>
+    <li onclick="scrollToSection('kanaly')">Kanály</li>
+    <li onclick="scrollToSection('komunikacia')">Komunikácia</li>
+    <li onclick="scrollToSection('pozicie')">Pozície</li>
+    <li onclick="scrollToSection('postup')">Pracovný postup</li>
+    <li onclick="scrollToSection('absencia')">Absencia</li>
+  </ul>
+</nav>
+
+<section class="hero" id="top">
+  <h1>SMART BOARD</h1>
+  <p>Arduino programming and development</p>
+</section>
+
+<section id="projekty" class="section">
+  <h2>Doposiaľ odovzdané projekty</h2>
+
+  <div class="card">
+    <strong>Projekt číslo 1 – Inteligentné riadenie LED osvetlenia pomocou Arduino</strong><br><br>
+
+    Tento projekt bol zameraný na návrh a implementáciu inteligentného systému
+    riadenia LED osvetlenia s využitím mikrokontroléra Arduino.
+    Projekt obsahuje kompletný zdrojový kód, technickú dokumentáciu,
+    schému zapojenia, grafické znázornenie zapojenia a video ukážku funkčnosti.
+
+    <br><br>
+    <strong>Obsah projektu:</strong><br><br>
+
+    <a class="download-link" href="sketch_feb2a.ino" download>Stiahnuť zdrojový kód (.ino)</a>
+    <a class="download-link" href="schema projekt c.1.png" download>Stiahnuť technickú schému (.pdf)</a>
+    <a class="download-link" href="zapojenie obvodu graficky.png" download>Stiahnuť grafické zapojenie (.png)</a>
+    <a class="download-link" href="video.mp4" download>Stiahnuť video ukážku (.mp4)</a>
+
+    <br>
+    Projekt bol úspešne otestovaný a odovzdaný v súlade s internými pravidlami.
+  </div>
+</section>
+
+<section id="zadanie-sekcia" class="section">
+  <h2>Zadanie</h2>
+  <div class="card info-box">
+    <strong>Informácia k novému zadaniu:</strong><br><br>
+    Zadanie bude poslané až po zaškoľovacej schôdzi, ktorá sa uskutoční v <strong>piatok 27. 12. 2026</strong>.
+  </div>
+</section>
+
+<section id="kanaly" class="section">
+  <h2>Kanály v Microsoft Teams</h2>
+
+  <div class="card">
+    <strong>Otázky ❓</strong><br><br>
+    Tento kanál slúži na technické a organizačné otázky medzi členmi tímu.
+  </div>
+
+  <div class="card">
+    <strong>Projekt 💻 – zadanie</strong><br><br>
+    Do tohto kanála sa zverejňuje oficiálne zadanie projektu, špecifikácie a termíny.
+  </div>
+
+  <div class="card">
+    <strong>Komunikácia medzi členmi tímu 🤙</strong><br><br>
+    Kanál určený na bežnú pracovnú komunikáciu a konzultácie počas vývoja.
+  </div>
+
+  <div class="card">
+    <strong>Odovzdanie konečného projektu 📁</strong><br><br>
+    Do tohto kanála sa posiela finálny projekt so všetkými požadovanými súbormi.
+  </div>
+
+  <div class="card">
+    <strong>Dovolenky 🏝️</strong><br><br>
+    Evidencia plánovaných neprítomností členov tímu.
+  </div>
+</section>
+
+<section id="komunikacia" class="section">
+  <h2>Tímová komunikácia – podľa naliehavosti</h2>
+
+  <div class="card comm-container">
+    <div class="comm-text">
+      <p><strong>Bežné:</strong> Menej súrne otázky sa riešia prostredníctvom Microsoft Teams.</p>
+      <br>
+      <p><strong>Dôležité:</strong> Dôležitejšie otázky sa riešia cez Messenger.</p>
+      <br>
+      <p><strong>Urgentné:</strong> Urgentné záležitosti sa riešia prostredníctvom SMS alebo telefonického hovoru.</p>
+    </div>
+    <div class="comm-links">
+      <strong>Rýchle odkazy:</strong>
+      <a class="comm-link" href="https://www.messenger.com/t/932218059242584" target="_blank">Skupina Messenger</a>
+      <a class="comm-link" href="https://teams.microsoft.com" target="_blank">Microsoft Teams</a>
+    </div>
+  </div>
+</section>
+
+<section id="pozicie" class="section">
+  <h2>Pozície v tíme</h2>
+
+  <div class="card">
+    <strong>Projektový manažér</strong><br>
+    • Riadenie celého projektu<br>
+    • Kontrola kvality výstupov<br>
+    • Koordinácia členov tímu<br>
+    • Komunikácia so zákazníkom
+  </div>
+
+  <div class="card">
+    <strong>Hardvérový vývojár</strong><br>
+    • Návrh elektrického zapojenia<br>
+    • Výber a testovanie komponentov<br>
+    • Tvorba schém a grafických nákresov<br>
+    • Príprava hardvérovej dokumentácie
+  </div>
+
+  <div class="card">
+    <strong>Softvérový vývojár / Majiteľ</strong><br>
+    • Programovanie logiky v C++/Arduino<br>
+    • Optimalizácia a ladenie kódu<br>
+    • Finálne technické schválenie projektu<br>
+    • Rozhodovanie o strategických krokoch
+  </div>
+</section>
+
+<section id="postup" class="section">
+  <h2>Pracovný postup</h2>
+  <div class="card">
+    Zadanie projektu → Analýza požiadaviek → Rozdelenie úloh →
+    Návrh zapojenia → Programovanie →
+    Testovanie → Úpravy → Finálne odovzdanie.
+  </div>
+</section>
+
+<section id="absencia" class="section">
+  <h2>Absencia a komunikácia</h2>
+  <div class="card">
+    <p>Každý člen tímu je povinný pravidelne komunikovať a informovať o stave svojej práce. Ak zamestnanec neoznámi projektový stav, nezadá požadované podklady alebo nevykoná zadanú úlohu po dobu <strong>2 dní</strong>, musí sa na <strong>3. deň</strong> automaticky očakávať jeho vyjadrenie. Ak sa do tejto doby neozve a neinformuje tím, považuje sa to za porušenie pracovnej disciplíny a vedie k <strong>automatickému ukončeniu jeho pozície vo firme</strong>.</p>
+    
+    <br>
+    <p>Všetky neprítomnosti, neaktívnosť alebo oneskorenia v práci je povinné oznámiť do komunity v Microsoft Teams s názvom <strong>„Dovolenky“</strong>. Toto zabezpečuje prehľadnosť a umožňuje riadne plánovanie projektov.</p>
+
+    <div class="warning-box">
+      <strong>Upozornenie o komunikácii a termínoch</strong><br><br>
+      Napríklad takáto situácia: Dohodli sme sa, že projekt bude odoslaný do 17:00. Ak zamestnanec projekt neodošle a neinformuje tím o dôvode do 2 dní, na 3. deň je automaticky vylúčený z pozície.
+    </div>
+  </div>
+</section>
+
+<footer>
+© 2026 Smart Board
+</footer>
+
+<script>
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+function scrollToTop(){
+  document.getElementById("top").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
